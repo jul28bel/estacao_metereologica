@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estação Meteorológica</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <aside class="lateral">
+        <div class="container">
+            <img src="img/logo.svg" alt="Logo da estação">
+
+            <div class="textos">
+                <h2 id="text1">Estação Meteorológica</h2>
+                <p id="text2">Dados atualizados automaticamente</p>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="index.html" class="menu-btn ativo">
+                Visão Geral
+            </a>
+
+            <a href="historico.html" class="menu-btn">
+                Histórico
+            </a>
+        </nav>
+    </aside>
+
+    <main class="principal">
+        <div class="textos3">
+            <h1 id="titulo">Visão Geral</h1>
+
+            <p id="descricao">
+                Condições atuais da estação meteorológica
+            </p>
+
+            <div class="status-dashboard">
+                <span id="statusConexao">
+                    Conectando ao Supabase...
+                </span>
+
+                <span>
+                    Última leitura:
+                    <strong id="ultimaAtualizacao">--</strong>
+                </span>
+
+                <span>
+                    Estado da leitura:
+                    <strong id="estadoLeitura">Aguardando dados...</strong>
+                </span>
+            </div>
+
+            <div id="cards" class="cards"></div>
+
+            <section class="bloco secao-estatisticas">
+                <h3>Estatísticas dos sensores</h3>
+                <div id="estatisticas"></div>
+            </section>
+
+            <section class="bloco secao-atipicos">
+                <h3>Análise de valores atípicos</h3>
+                <div id="outliers"></div>
+            </section>
+
+            <div class="painel">
+                <section class="bloco mapa-bloco">
+                    <h3 id="localizacao">
+                        Localização da Estação
+                    </h3>
+
+                    <div class="coords">
+                        <div class="caixa">
+                            <span>LATITUDE</span>
+                            <p id="latitude">--</p>
+                        </div>
+
+                        <div class="caixa">
+                            <span>LONGITUDE</span>
+                            <p id="longitude">--</p>
+                        </div>
+
+                        <div class="caixa">
+                            <span>ALTITUDE</span>
+                            <p id="altitude">--</p>
+                        </div>
+                    </div>
+
+                    <div id="mapa"></div>
+                </section>
+
+                <div class="coluna-direita">
+                    <section class="bloco bloco-alertas">
+                        <h3>Alertas</h3>
+                        <div id="alertas"></div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="graficos">
+                <section class="bloco var_temperatura">
+                    <h3 id="temp3">Temperatura</h3>
+                    <div class="area-grafico">
+                        <canvas id="graficoTemp"></canvas>
+                    </div>
+                </section>
+
+                <section class="bloco var_umidade">
+                    <h3 id="umidade3">Umidade</h3>
+                    <div class="area-grafico">
+                        <canvas id="graficoUmid"></canvas>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="index.js"></script>
+</body>
+</html>
